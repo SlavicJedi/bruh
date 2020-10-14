@@ -1,7 +1,16 @@
+const talkedRecently = new Set();
+
+
 module.exports = {
 	name: 'tiktok',
 	description: 'DESCRIPTION',
 	execute(message, args) {
+
+
+
+		if (talkedRecently.has(message.author.id)) {
+            message.channel.send("Wait 15 seconds before getting typing this again. - " + message.author);
+    } else {
 
 		const julia = [
 			"https://imgur.com/SmCDnc7",
@@ -28,20 +37,31 @@ module.exports = {
 			"https://imgur.com/ce94pVK",
 			"https://imgur.com/BWzULbK"
 			
-
+	
 		  ];
-
+	
 		  
 			const bitch = julia[Math.floor(Math.random() * julia.length)];
-		    message.delete()
-
+			message.delete()
+	
 		
 			message.channel.send(bitch)
 			.then(msg2 => msg2.delete(15000)).catch(console.error);
-
+	
 			
 		  
 			console.log("tiktok was used")
+
+        // Adds the user to the set so that they can't talk for a minute
+        talkedRecently.add(message.author.id);
+        setTimeout(() => {
+          // Removes the user from the set after a minute
+          talkedRecently.delete(message.author.id);
+        }, 15000);
+    }
+
+
+
 
 
 	}

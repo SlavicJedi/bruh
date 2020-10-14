@@ -1,7 +1,16 @@
+const talkedRecently = new Set();
+
+
 module.exports = {
 	name: 'somer',
 	description: 'DESCRIPTION',
 	execute(message, args) {
+
+
+
+		if (talkedRecently.has(message.author.id)) {
+            message.channel.send("Wait 15 seconds before getting typing this again. - " + message.author);
+    } else {
 
 		const julia = [
 			"https://www.instagram.com/p/CGQZkoeguCb/",
@@ -106,6 +115,16 @@ module.exports = {
 			
 		  
 			console.log("somer was used")
+
+        // Adds the user to the set so that they can't talk for a minute
+        talkedRecently.add(message.author.id);
+        setTimeout(() => {
+          // Removes the user from the set after a minute
+          talkedRecently.delete(message.author.id);
+        }, 15000);
+    }
+
+		
 
 
 	}

@@ -1,7 +1,15 @@
+const talkedRecently = new Set();
+
+
 module.exports = {
 	name: 'lapdance',
 	description: 'DESCRIPTION',
 	execute(message, args) {
+
+
+		if (talkedRecently.has(message.author.id)) {
+            message.channel.send("Wait 1 minute before getting typing this again. - " + message.author);
+    } else {
 
 		const cum = [
 			"https://tenor.com/view/make-out-humping-couple-gif-15770300",
@@ -20,6 +28,16 @@ module.exports = {
 		.then(msg => msg.delete(4000)).catch(console.error);
 
 		console.log("Lapdance was used")
+
+        // Adds the user to the set so that they can't talk for a minute
+        talkedRecently.add(message.author.id);
+        setTimeout(() => {
+          // Removes the user from the set after a minute
+          talkedRecently.delete(message.author.id);
+        }, 60000);
+    }
+
+		
 
 	}
 };
