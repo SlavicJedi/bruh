@@ -11,7 +11,7 @@ module.exports = {
             message.channel.send("Wait 1 minute before getting typing this again. - " + message.author);
     } else {
 
-        if(message.author.id == "647237711274573844" || message.author.id == "744962193363304508" || message.author.id == "426153608501919745" || message.author.id == "226774702662615050" || message.author.id == "420387543918313473" || message.author.id == "521126909346840609") {
+        if(message.author.id == "647237711274573844" || message.author.id == "744962193363304508" || message.author.id == "426153608501919745" || message.author.id == "226774702662615050" || message.author.id == "420387543918313473" || message.author.id == "521126909346840609" || message.author.id == "444693698035318786") {
 
 			const messages = [
 				"https://imgur.com/W5t6GyY",
