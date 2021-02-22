@@ -6,8 +6,11 @@ module.exports = {
 	description: 'DESCRIPTION',
 	execute(message, args) {
 
+		
+message.channel.send('Due to new instagram API policies, this command has been discontinued.')
 
 
+/*
 		if (talkedRecently.has(message.author.id)) {
             message.channel.send("Wait 15 seconds before getting typing this again. - " + message.author);
     } else {
@@ -123,7 +126,7 @@ module.exports = {
           talkedRecently.delete(message.author.id);
         }, 15000);
     }
-
+*/
 		
 
 
